@@ -16,7 +16,7 @@ function isValidEmail(email) {
   return emailRegex.test(email);
 }
 
-//Function for cehcking a valid obile number
+//Function for cehcking a valid mobile number
 function isValidMobileNumber(mobileNumber) {
   var mobileNumberRegex = /^[0-9]{10}$/;
   return mobileNumberRegex.test(mobileNumber);
