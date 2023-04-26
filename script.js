@@ -104,4 +104,4 @@ resetbutton.addEventListener('click', function() {
   localStorage.removeItem('itemJson');
   location.reload();
 }
-});
+);
