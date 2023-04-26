@@ -74,18 +74,21 @@ button.addEventListener('click', function() {
 
     // document.getElementById("result").innerHTML = localStorage.getItem("itemJson");
 
-    if(i==null){
-      i= 0;
-    }
-    for (  i = i; i < itemJsonArray.length; ++i) {
-      var rowCount = myTable.rows.length;
-      var row = myTable.insertRow(rowCount);
-      row.insertCell(0).innerHTML= i+1;
-      row.insertCell(1).innerHTML= itemJsonArray[i][0];
-      row.insertCell(2).innerHTML= itemJsonArray[i][1];
-      row.insertCell(3).innerHTML= itemJsonArray[i][2];
-      i=i;
-    }
+    
+  }
+  itemJsonArrayStr = localStorage.getItem('itemJson');
+  itemJsonArray = JSON.parse(itemJsonArrayStr);
+  if(i==null){
+    i= 0;
+  }
+  for (  i = i; i < itemJsonArray.length; ++i) {
+    var rowCount = myTable.rows.length;
+    var row = myTable.insertRow(rowCount);
+    row.insertCell(0).innerHTML= i+1;
+    row.insertCell(1).innerHTML= itemJsonArray[i][0];
+    row.insertCell(2).innerHTML= itemJsonArray[i][1];
+    row.insertCell(3).innerHTML= itemJsonArray[i][2];
+    i=i;
   }
 
 
