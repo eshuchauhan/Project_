@@ -12,6 +12,7 @@
 </head>
 
 <body>
+  <div>
     <div class="row">
         <div class="col-6 center-text"> <h1>FORM</h1> </div>
         <div class="col-6 center-text"> <h1>TABLE</h1> </div>
@@ -21,28 +22,42 @@
         <div class="row-1">
             <div class="col-5">
                 <form>
-                  <div class="form-group">
                     <label for="name">Name</label>
                     <input type="text" class="form-control" id="name" required placeholder="Enter your Name"/>
-                  </div>
     
-                  <div class="form-group">
                     <label for="E-mail">E-mail</label>
                     <input type="email" class="form-control" id="email" required placeholder="Enter your Email"/>
-                  </div>
     
-                  <div class="form-group">
                     <label for="phone">Phone Number</label>
                     <input type="tel" class="form-control" id="phone" placeholder="Enter your Phone Number"/>
-                  </div>
       
-                  <button type="submit" class="">Submit</button>
-                  <button type="reset" class="">Reset</button>
+                  
                 </form>
+                  <button id="submit" type="button" >Submit</button>
+                  <button type="reset" class="">Reset</button>
+
+                
             </div>
           </div>
       </form>
-        
-      <script src="script.js"></script>
+
+      <div id="result"></div>
+      <div class="col-6">
+        <table id= "myTable">
+          <thead>
+            <tr>
+              <th>SNo</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone Number</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+    </div>
+      <script src="script.js">
+      </script>
 </body>
 </html>
