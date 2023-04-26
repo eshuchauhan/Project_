@@ -94,3 +94,14 @@ button.addEventListener('click', function() {
 
 }
 });
+
+
+const resetbutton = document.querySelector('#reset');
+
+resetbutton.addEventListener('click', function() {
+  console.log('Button clicked!');
+
+  localStorage.removeItem('itemJson');
+  location.reload();
+}
+});
