@@ -9,7 +9,6 @@ function containsNumericOrSpecial(str) {
     return true;
 }
 
-
 //Function for checking valid mail
 function isValidEmail(email) {
   var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -18,6 +17,10 @@ function isValidEmail(email) {
 
 //Function for cehcking a valid mobile number
 function isValidMobileNumber(mobileNumber) {
+  if(mobileNumber.length==0) 
+  {
+    return true;
+  }
   var mobileNumberRegex = /^[0-9]{10}$/;
   return mobileNumberRegex.test(mobileNumber);
 }
@@ -90,13 +93,11 @@ button.addEventListener('click', function() {
     row.insertCell(3).innerHTML= itemJsonArray[i][2];
     i=i;
   }
-
-
 }
 });
 
 
-const resetbutton = document.querySelector('#reset');
+const resetbutton = document.querySelector('#clr');
 
 resetbutton.addEventListener('click', function() {
   console.log('Button clicked!');
@@ -105,6 +106,3 @@ resetbutton.addEventListener('click', function() {
   location.reload();
 }
 );
-
-
-
