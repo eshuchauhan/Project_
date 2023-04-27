@@ -1,13 +1,41 @@
-body{
-    background-image: linear-gradient(160deg, #6b99d1 0%, #5f91cd 100%);;
-    /* background-color: rgb(102, 120, 112); */
+body {
+  background-image: linear-gradient(160deg, #6b99d1 0%, #5f91cd 100%);
+  /* background-color: rgb(102, 120, 112); */
 }
 
 .center-text {
-    text-align: center;
+  text-align: center;
 }
 
-.form-group{
-    margin: 3px;
-    padding: 8px;
+.form-group {
+  margin: 3px;
+  padding: 8px;
+}
+
+#myTable {
+  font-family: arial, Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#myTable td,
+#myTable th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#myTable tr:nth-child(even) {
+  background-color: #0b3fc3;
+}
+
+#myTable tr:hover {
+  background-color: #ddd;
+}
+
+#myTable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04aa6d;
+  color: white;
 }
