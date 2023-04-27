@@ -32,7 +32,6 @@ function isValidMobileNumber(mobileNumber) {
 var i = null;
 
 const button = document.querySelector("#submit");
-
 button.addEventListener("click", function () {
   console.log("Button clicked!");
 
@@ -42,52 +41,23 @@ button.addEventListener("click", function () {
 
   var st_phone = document.getElementById("phone").value;
 
-  var flag = true;
+  var isValidDetail = true;
 
   if (containsNumericOrSpecial(st_name) === false) {
-    flag = false;
+    isValidDetail = false;
     window.alert("Please Enter Valid Name");
   } else if (isValidEmail(st_email) === false) {
-    flag = false;
+    isValidDetail = false;
     window.alert("Please Enter Valid Email");
   }
-
-  if (isValidMobileNumber(st_phone) === false) {
-    flag = false;
+  else if (isValidMobileNumber(st_phone) === false) {
+    isValidDetail = false;
     window.alert("Please Enter Valid Mobile Number");
   }
 
-  if (flag === true) {
-    // const obj = {"name": st_name , "email" : st_email , "phone" :st_phone};
-    // localStorage.setItem("dummydata", JSON.stringify(obj));
-    if (localStorage.getItem("itemJson") == null) {
-      itemJsonArray = [];
-      itemJsonArray.push([st_name, st_phone, st_email]);
-      localStorage.setItem("itemJson", JSON.stringify(itemJsonArray));
-    } else {
-      itemJsonArrayStr = localStorage.getItem("itemJson");
-      itemJsonArray = JSON.parse(itemJsonArrayStr);
-      itemJsonArray.push([st_name, st_phone, st_email]);
-      localStorage.setItem("itemJson", JSON.stringify(itemJsonArray));
-
-      // submit.preventDefault();
-
-      // document.getElementById("result").innerHTML = localStorage.getItem("itemJson");
-    }
-    itemJsonArrayStr = localStorage.getItem("itemJson");
-    itemJsonArray = JSON.parse(itemJsonArrayStr);
-    if (i == null) {
-      i = 0;
-    }
-    for (i = i; i < itemJsonArray.length; ++i) {
-      var rowCount = myTable.rows.length;
-      var row = myTable.insertRow(rowCount);
-      row.insertCell(0).innerHTML = i + 1;
-      row.insertCell(1).innerHTML = itemJsonArray[i][0];
-      row.insertCell(2).innerHTML = itemJsonArray[i][1];
-      row.insertCell(3).innerHTML = itemJsonArray[i][2];
-      i = i;
-    }
+  if (isValidDetail === true) {
+    addDataToLocalStorage(st_name,st_phone,st_email);
+    updateTable();
   }
 });
 
@@ -99,3 +69,36 @@ resetbutton.addEventListener("click", function () {
   localStorage.removeItem("itemJson");
   location.reload();
 });
+
+function addDataToLocalStorage(st_name,st_phone,st_email){
+  if (localStorage.getItem("itemJson") == null) {
+    itemJsonArray = [];
+    itemJsonArray.push([st_name, st_phone, st_email]);
+    localStorage.setItem("itemJson", JSON.stringify(itemJsonArray));
+  } else {
+    itemJsonArrayStr = localStorage.getItem("itemJson");
+    itemJsonArray = JSON.parse(itemJsonArrayStr);
+    itemJsonArray.push([st_name, st_phone, st_email]);
+    localStorage.setItem("itemJson", JSON.stringify(itemJsonArray));
+
+    // submit.preventDefault();
+
+    // document.getElementById("result").innerHTML = localStorage.getItem("itemJson");
+  }
+}
+function updateTable(){
+  itemJsonArrayStr = localStorage.getItem("itemJson");
+  itemJsonArray = JSON.parse(itemJsonArrayStr);
+  if (i == null) {
+    i = 0;
+  }
+  for (i = i; i < itemJsonArray.length; ++i) {
+    var rowCount = myTable.rows.length;
+    var row = myTable.insertRow(rowCount);
+    row.insertCell(0).innerHTML = i + 1;
+    row.insertCell(1).innerHTML = itemJsonArray[i][0];
+    row.insertCell(2).innerHTML = itemJsonArray[i][1];
+    row.insertCell(3).innerHTML = itemJsonArray[i][2];
+    i = i;
+  }
+}
