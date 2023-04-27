@@ -49,15 +49,16 @@ button.addEventListener("click", function () {
   } else if (isValidEmail(st_email) === false) {
     isValidDetail = false;
     window.alert("Please Enter Valid Email");
-  }
-  else if (isValidMobileNumber(st_phone) === false) {
+  } else if (isValidMobileNumber(st_phone) === false) {
     isValidDetail = false;
     window.alert("Please Enter Valid Mobile Number");
   }
 
   if (isValidDetail === true) {
-    addDataToLocalStorage(st_name,st_phone,st_email);
+    addDataToLocalStorage(st_name, st_phone, st_email);
     updateTable();
+
+    
   }
 });
 
@@ -70,7 +71,7 @@ resetbutton.addEventListener("click", function () {
   location.reload();
 });
 
-function addDataToLocalStorage(st_name,st_phone,st_email){
+function addDataToLocalStorage(st_name, st_phone, st_email) {
   if (localStorage.getItem("itemJson") == null) {
     itemJsonArray = [];
     itemJsonArray.push([st_name, st_phone, st_email]);
@@ -86,7 +87,7 @@ function addDataToLocalStorage(st_name,st_phone,st_email){
     // document.getElementById("result").innerHTML = localStorage.getItem("itemJson");
   }
 }
-function updateTable(){
+function updateTable() {
   itemJsonArrayStr = localStorage.getItem("itemJson");
   itemJsonArray = JSON.parse(itemJsonArrayStr);
   if (i == null) {
@@ -102,3 +103,24 @@ function updateTable(){
     i = i;
   }
 }
+
+
+const buttonCSV = document.querySelector("#csvExtractor");
+buttonCSV.addEventListener("click", function () {
+  var data = '';
+  itemJsonArrayStr = localStorage.getItem("itemJson");
+  itemJsonArray = JSON.parse(itemJsonArrayStr);
+  for (var i=1;i< itemJsonArray.length;i++) {
+      var sep = '';
+      for (var j=0;j<=2;j++) {
+          data +=  sep + itemJsonArray[i][j];
+          sep = ',';
+      }
+      data += '\r\n';
+  }
+  var exportLink = document.createElement('a');
+  exportLink.setAttribute('href', 'data:text/csv;base64,' + window.btoa(data));
+  exportLink.appendChild(document.createTextNode('test.csv'));
+  document.getElementById('results').remo
+  document.getElementById('results').appendChild(exportLink);
+});
