@@ -1,6 +1,6 @@
 body {
-  background-image: linear-gradient(160deg, #6b99d1 0%, #5f91cd 100%);
-  /* background-color: rgb(102, 120, 112); */
+  /* background-image: linear-gradient(160deg, #6b99d1 0%, #5f91cd 100%); */
+  background-color: rgb(102, 120, 112);
 }
 
 .center-text {

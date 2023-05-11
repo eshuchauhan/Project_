@@ -1,5 +1,6 @@
 //Function for checking Name
 function containsNumericOrSpecial(str) {
+  changeColor();
   for (var i = 0; i < str.length; i++) {
     var charCode = str.charCodeAt(i);
     if (
@@ -124,3 +125,11 @@ buttonCSV.addEventListener("click", function () {
   document.getElementById('results').remo
   document.getElementById('results').appendChild(exportLink);
 });
+
+
+
+function changeColor()
+{
+var color = document.getElementById("colorpicker").value;
+document.body.style.backgroundColor = color;
+}
